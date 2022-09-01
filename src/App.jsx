@@ -1,7 +1,8 @@
 import { useReducer } from 'react'
 import './App.css'
-import { UP_ACTION } from './store/actions/counter-action';
 import counterReducer from './store/reducer/counter-reducer';
+import {COUNTERUP,downAction,resetAction,UPDATE} from "./counter-action"
+
 
 export let initial = 0;
 
@@ -11,9 +12,10 @@ const [myState,dispatch] = useReducer(counterReducer,initial);
   return (
     <div className="App">
      {myState}
-     <button onClick={()=> dispatch(UP_ACTION)}>up</button>
-     {/* <button onClick={()=> dispatch({type:"down"})}>down</button>
-     <button onClick={()=> dispatch({type:"reset"})}>reset</button> */}
+     <button onClick={()=> dispatch(COUNTERUP())}>up</button>
+      <button onClick={()=> dispatch(downAction())}>down</button>
+     <button onClick={()=> dispatch(resetAction())}>reset</button> 
+     <button onClick={()=> dispatch(UPDATE(7))}>update</button> 
     </div>
   )
 }

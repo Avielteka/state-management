@@ -1,1 +1,0 @@
-export const UP_ACTION = {type:"up"}
